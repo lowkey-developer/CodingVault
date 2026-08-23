@@ -5,6 +5,7 @@ import { getLanguage, getAdjacent } from "../data/languages";
 import { MaskedLine, FadeUp, ChapterHeading } from "../components/MaskedText";
 import { CodeBlock } from "../components/CodeBlock";
 import { StatBar } from "../components/StatBar";
+import { TerminalTyping } from "../components/TerminalTyping";
 import { Timeline } from "../components/Timeline";
 import { Footer } from "../components/Footer";
 
@@ -44,6 +45,8 @@ const HeroSection = ({ lang }) => {
         <MaskedLine inView={false} delay={0.35}>
           <span className="font-cormorant italic text-2xl md:text-4xl text-dim">{lang.tagline}</span>
         </MaskedLine>
+
+        <TerminalTyping slug={lang.slug} />
 
         <motion.div
           initial={{ opacity: 0 }}

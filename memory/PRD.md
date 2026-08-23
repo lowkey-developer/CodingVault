@@ -17,6 +17,7 @@ User had a plain HTML page listing 7 programming languages (Python, Java, C, C++
 - Design system from `/app/design_guidelines.json`: Clash Display / Cormorant Garamond / Satoshi / JetBrains Mono; flat surfaces, 1px hairline grids, bento Tetris index grid, numbered chapters
 
 ## Implemented (July 2026)
+- Terminal typing hero on detail pages: a terminal window types each language's hello-world line character by character with blinking cursor, syntax-tinted string literals, then prints the output
 - Home: kinetic hero ("SEVEN LANGUAGES, one MACHINE") with masked line-by-line reveal + mouse-parallax logo cluster; slow editorial marquee; numbered manifesto chapters; bento language index grid with hover micro-interactions and "Learn the basics" buttons; editorial footer
 - 7 detail pages, each with: hero (giant masked title, rotating logo reveal, meta grid), animated stat bars (sticky), 3-paragraph story, "Learn the basics" (4 concept cards with mini code), full syntax-highlighted real-world code example, history timeline, use-case grid, honest pros/cons, prev/next language navigation
 - Lenis smooth scrolling, noise texture overlay, custom scrollbar, accent selection color, responsive down to mobile, data-testids throughout
