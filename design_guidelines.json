@@ -1,0 +1,97 @@
+{
+  "theme": "Dark Editorial",
+  "concept": "Deep ink background, warm off-white text, one sharp accent color, completely flat surfaces (NO gradients). Heavy focus on typographic hierarchy, kinetic motion, and raw technical elegance.",
+  "typography": {
+    "fonts": [
+      {
+        "family": "Clash Display",
+        "usage": "Primary Headings, Hero Text, Numbers",
+        "weights": ["400", "500", "600"],
+        "import_url": "https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600&display=swap"
+      },
+      {
+        "family": "Cormorant Garamond",
+        "usage": "Secondary Headings, Editorial Accents, Quotes",
+        "weights": ["400", "400i", "600"],
+        "import_url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap"
+      },
+      {
+        "family": "Satoshi",
+        "usage": "Body text, UI elements",
+        "weights": ["400", "500"],
+        "import_url": "https://api.fontshare.com/v2/css?f[]=satoshi@400,500&display=swap"
+      },
+      {
+        "family": "JetBrains Mono",
+        "usage": "Code blocks, Technical stats, Small uppercase labels, Timeline dates",
+        "weights": ["400", "700"],
+        "import_url": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap"
+      }
+    ],
+    "rules": {
+      "h1": "font-clash text-5xl sm:text-6xl lg:text-[7vw] leading-none tracking-tight",
+      "h2": "font-clash text-3xl sm:text-4xl lg:text-5xl leading-tight tracking-tight",
+      "editorial_accent": "font-cormorant italic text-2xl lg:text-4xl text-accent",
+      "body": "font-satoshi text-base lg:text-lg leading-relaxed text-text_secondary",
+      "mono_label": "font-mono text-xs uppercase tracking-[0.2em] text-text_secondary"
+    }
+  },
+  "colors": {
+    "background": "#050505",
+    "surface": "#111112",
+    "surface_hover": "#1A1A1D",
+    "text_primary": "#F4F0EA",
+    "text_secondary": "#8A8782",
+    "accent": "#FF3300",
+    "border": "#222222",
+    "rules": "ABSOLUTELY NO GRADIENTS. All backgrounds, buttons, and cards must use solid colors. Use 1px borders (#222222) to separate sections if needed. Highlight interactive states with solid #FF3300."
+  },
+  "visual_enhancers": {
+    "surfaces": "Flat solid surfaces only. No glassmorphism, no neo-brutalism shadows. Just sharp, 1px borders and solid deep ink fills.",
+    "textures": "Subtle SVG noise overlay fixed at z-50, pointer-events-none, opacity-20.",
+    "corners": "Sharp (rounded-none) or extremely subtle (rounded-sm) for a strict editorial feel."
+  },
+  "layouts": {
+    "spacing": "Extremely generous. Use py-24 to py-32 for section padding. Implement tension by combining massive negative space with tightly clustered information blocks.",
+    "grid": "Bento 'Tetris' Grid for Language Index. grid-cols-1 md:grid-cols-12 gap-px bg-border. Items have bg-background, creating a hairline border effect.",
+    "hero": "Asymmetric. Large Clash Display kinetic text spanning 8 columns, with JetBrains mono technical details in the remaining 4 columns.",
+    "detail_page": "Magazine-like layout. Two-column split for content (sticky stats on left, scrolling heavy text/code on right)."
+  },
+  "motion": {
+    "scroll": "Lenis (momentum scrolling) is MANDATORY. It gives the site physical weight.",
+    "reveals": "Framer Motion line-by-line staggered text reveals for all H1s and H2s (y: 100%, clipPath/overflow hidden wrappers).",
+    "hover": "Language grid cards: Image scales slightly, text translates horizontally. Sharp, snappy springs.",
+    "marquee": "react-fast-marquee for an editorial ribbon (e.g., 'PYTHON • JAVA • C++ • JAVASCRIPT • ' in Cormorant Garamond, slow speed)."
+  },
+  "components": {
+    "button": "Sharp rectangle (rounded-none). Solid accent color or transparent with 1px border. On hover, background fills or inverts. MUST include an arrow icon (Phosphor icons) that translates right on hover.",
+    "language_card": "1px bordered flat card. No shadow. Logo in a spotlight box. Use Phosphor or React Icons for logos.",
+    "code_block": "Syntax styling utilizing standard highlight.js or prism themes but customized to our color palette (background: #111112, text: off-white, keywords: accent).",
+    "timeline": "Vertical 1px line connecting technical milestones. JetBrains Mono for years."
+  },
+  "media": {
+    "logos": "Use actual simple-icons or devicons for languages (Python, Java, C, C++, C#, JavaScript, TypeScript) via react-icons/si. Display them in monochrome (white or accent) instead of their brand colors to maintain the strict editorial theme.",
+    "images": "Use abstract, dark architectural or high-contrast monochromatic imagery if needed for hero. Do not use generic tech stock photos."
+  },
+  "libraries": {
+    "motion": ["framer-motion", "@studio-freight/react-lenis"],
+    "icons": ["react-icons", "@phosphor-icons/react"],
+    "components": ["react-fast-marquee", "clsx", "tailwind-merge"]
+  },
+  "universal_guidelines": [
+    "No generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "You MUST NOT apply universal transition (e.g., transition: all). Breaks transforms. Always add specific transitions.",
+    "You MUST NOT center align the app container (.App { text-align: center; } is FORBIDDEN).",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Every interaction needs micro-animations (hover states, transitions).",
+    "Missing categories = use relevant semantic icons instead of placeholder text.",
+    "All interactive and key informational elements MUST include a data-testid attribute in kebab-case."
+  ],
+  "accessibility": {
+    "contrast": "Ensure all text against the #050505 or #111112 background meets WCAG AA.",
+    "motion": "Respect prefers-reduced-motion using framer-motion's useReducedMotion hook.",
+    "focus": "Use focus-visible ring (e.g., focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none)."
+  },
+  "instructions_to_main_agent": "Strict adherence to the NO GRADIENTS rule. The UI must feel like a high-end physical magazine print on black paper. Implement smooth scrolling with Lenis. Detail pages must use React Router. Build out dedicated detail pages for each language with code snippets, history timelines, and use cases as requested. Provide the actual tech content, do not use lorem ipsum."
+}
