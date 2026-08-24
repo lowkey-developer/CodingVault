@@ -17,6 +17,8 @@ User had a plain HTML page listing 7 programming languages (Python, Java, C, C++
 - Design system from `/app/design_guidelines.json`: Clash Display / Cormorant Garamond / Satoshi / JetBrains Mono; flat surfaces, 1px hairline grids, bento Tetris index grid, numbered chapters
 
 ## Implemented (July 2026)
+- Keyboard shortcuts: pressing 1–6 on any language page jumps straight to that chapter (guarded against modifier keys and text inputs); key hints shown in the chapter bar
+- Reading progress: a 2px accent line fixed to the top of every detail page grows with scroll depth, spring-smoothed via framer-motion useScroll
 - Section bookmarks: sticky chapter nav on detail pages (Story / Basics / Code / Timeline / Where it runs / Trade-offs) with smooth Lenis jumps, scroll-spy active highlighting, and a drift-correction re-aim for late font-swap layout shifts
 - Copy code buttons: one-tap copy with Copied feedback on the main syntax-highlighted snippet and every basics mini-code block (with clipboard fallback)
 - Language picker quiz at /quiz: 4 questions with animated slide transitions, progress hairline, weighted scoring, and a result screen (giant masked name, accent icon, tailored reason, "Start learning" CTA, retake); reachable via navbar "Find yours" link and a CTA banner at the bottom of the home index

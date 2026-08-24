@@ -7,6 +7,7 @@ import { CodeBlock, CopyButton } from "../components/CodeBlock";
 import { StatBar } from "../components/StatBar";
 import { TerminalTyping } from "../components/TerminalTyping";
 import { ChapterNav } from "../components/ChapterNav";
+import { ReadingProgress } from "../components/ReadingProgress";
 import { Timeline } from "../components/Timeline";
 import { Footer } from "../components/Footer";
 
@@ -249,6 +250,7 @@ export default function LanguagePage() {
 
   return (
     <main key={lang.slug} data-testid={`language-page-${lang.slug}`}>
+      <ReadingProgress />
       <HeroSection lang={lang} />
       <ChapterNav />
       <OverviewSection lang={lang} />
