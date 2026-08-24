@@ -1,4 +1,5 @@
-import { useParams, Link, Navigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useParams, Link, Navigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getLanguage, getAdjacent } from "../data/languages";
@@ -6,7 +7,7 @@ import { MaskedLine, FadeUp, ChapterHeading } from "../components/MaskedText";
 import { CodeBlock, CopyButton } from "../components/CodeBlock";
 import { StatBar } from "../components/StatBar";
 import { TerminalTyping } from "../components/TerminalTyping";
-import { ChapterNav } from "../components/ChapterNav";
+import { ChapterNav, scrollToChapter } from "../components/ChapterNav";
 import { ReadingProgress } from "../components/ReadingProgress";
 import { Timeline } from "../components/Timeline";
 import { Footer } from "../components/Footer";
@@ -245,7 +246,16 @@ const NextSection = ({ lang }) => {
 
 export default function LanguagePage() {
   const { slug } = useParams();
+  const { hash } = useLocation();
   const lang = getLanguage(slug);
+
+  useEffect(() => {
+    if (lang && hash === "#basics") {
+      const t = setTimeout(() => scrollToChapter("basics-section"), 1400);
+      return () => clearTimeout(t);
+    }
+  }, [hash, slug, lang]);
+
   if (!lang) return <Navigate to="/" replace />;
 
   return (

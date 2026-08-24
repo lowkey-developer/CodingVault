@@ -9,7 +9,7 @@ const CHAPTERS = [
   { testid: "proscons-section", num: "06", label: "Trade-offs" },
 ];
 
-const scrollToChapter = (testid) => {
+export const scrollToChapter = (testid) => {
   const el = document.querySelector(`[data-testid="${testid}"]`);
   if (!el) return;
   const go = () => {

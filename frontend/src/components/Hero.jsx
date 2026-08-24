@@ -56,7 +56,7 @@ export const Hero = () => {
           className="font-jetbrains text-xs uppercase tracking-[0.35em] text-dim mb-8"
           data-testid="hero-kicker"
         >
-          An interactive field guide to the languages that built software
+          Seven Languages. One Coding Journey.
         </motion.p>
 
         <h1 className="font-clash font-medium leading-[0.92] tracking-tight text-cream">
@@ -79,9 +79,9 @@ export const Hero = () => {
             className="md:col-span-5 font-satoshi text-base md:text-lg leading-relaxed text-dim max-w-md"
             data-testid="hero-description"
           >
-            From Dennis Ritchie's C to the TypeScript renaissance — explore the
-            history, the code, and the craft of each language. Every entry is a
-            full lesson: basics, real code, and honest trade-offs.
+            Learn the fundamentals, practice the basics, and discover which
+            language fits you best — every entry is a full lesson in history,
+            code, and craft.
           </motion.p>
           <motion.div
             initial={{ opacity: 0 }}
