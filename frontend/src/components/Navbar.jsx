@@ -32,6 +32,13 @@ export const Navbar = () => {
           >
             Index
           </Link>
+          <Link
+            to="/quiz"
+            data-testid="nav-quiz-link"
+            className="font-jetbrains text-xs uppercase tracking-[0.25em] text-dim hover:text-cream transition-colors duration-300"
+          >
+            Find yours
+          </Link>
           <span className="hidden md:inline font-jetbrains text-xs tracking-[0.25em] text-dim" data-testid="nav-count">
             07 LANGUAGES
           </span>

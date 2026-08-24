@@ -74,6 +74,27 @@ export const LanguageIndex = () => (
           <Card key={lang.slug} lang={lang} index={i} />
         ))}
       </div>
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="border border-line border-t-0 bg-ink p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+        data-testid="quiz-cta"
+      >
+        <div>
+          <p className="font-cormorant italic text-2xl md:text-3xl text-cream">Not sure where to begin?</p>
+          <p className="font-satoshi text-sm md:text-base text-dim mt-2">Four questions. One honest answer.</p>
+        </div>
+        <Link
+          to="/quiz"
+          data-testid="quiz-cta-link"
+          className="group inline-flex items-center gap-3 px-6 py-3.5 bg-accent text-ink font-jetbrains text-xs uppercase tracking-[0.2em] hover:bg-cream transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        >
+          Take the quiz
+          <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+        </Link>
+      </motion.div>
     </div>
   </section>
 );

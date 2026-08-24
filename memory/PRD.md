@@ -17,6 +17,9 @@ User had a plain HTML page listing 7 programming languages (Python, Java, C, C++
 - Design system from `/app/design_guidelines.json`: Clash Display / Cormorant Garamond / Satoshi / JetBrains Mono; flat surfaces, 1px hairline grids, bento Tetris index grid, numbered chapters
 
 ## Implemented (July 2026)
+- Section bookmarks: sticky chapter nav on detail pages (Story / Basics / Code / Timeline / Where it runs / Trade-offs) with smooth Lenis jumps, scroll-spy active highlighting, and a drift-correction re-aim for late font-swap layout shifts
+- Copy code buttons: one-tap copy with Copied feedback on the main syntax-highlighted snippet and every basics mini-code block (with clipboard fallback)
+- Language picker quiz at /quiz: 4 questions with animated slide transitions, progress hairline, weighted scoring, and a result screen (giant masked name, accent icon, tailored reason, "Start learning" CTA, retake); reachable via navbar "Find yours" link and a CTA banner at the bottom of the home index
 - Terminal typing hero on detail pages: a terminal window types each language's hello-world line character by character with blinking cursor, syntax-tinted string literals, then prints the output; a "Re-run" button replays the animation on demand
 - Home: kinetic hero ("SEVEN LANGUAGES, one MACHINE") with masked line-by-line reveal + mouse-parallax logo cluster; slow editorial marquee; numbered manifesto chapters; bento language index grid with hover micro-interactions and "Learn the basics" buttons; editorial footer
 - 7 detail pages, each with: hero (giant masked title, rotating logo reveal, meta grid), animated stat bars (sticky), 3-paragraph story, "Learn the basics" (4 concept cards with mini code), full syntax-highlighted real-world code example, history timeline, use-case grid, honest pros/cons, prev/next language navigation
@@ -34,9 +37,8 @@ User had a plain HTML page listing 7 programming languages (Python, Java, C, C++
 - Mobile viewport renders cleanly (screenshot)
 
 ## Backlog
-- P1: Copy-to-clipboard on code blocks; deep-linkable section anchors on detail pages; navbar "Index" anchor scroll fix for cross-page navigation
-- P2: Quiz per language; "which language for me" interactive picker; search/filter on index
-- P3: Dark/light toggle (light editorial variant); more languages (Go, Rust, Rust, Kotlin); share buttons
+- P2: Quiz result sharing (copyable link); keyboard shortcuts on detail pages (1-6 jump to chapters)
+- P3: Dark/light toggle (light editorial variant); more languages (Go, Rust, Kotlin); share buttons
 
 ## Credentials
 - None required — no auth, no database.

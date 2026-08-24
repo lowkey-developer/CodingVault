@@ -3,9 +3,10 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getLanguage, getAdjacent } from "../data/languages";
 import { MaskedLine, FadeUp, ChapterHeading } from "../components/MaskedText";
-import { CodeBlock } from "../components/CodeBlock";
+import { CodeBlock, CopyButton } from "../components/CodeBlock";
 import { StatBar } from "../components/StatBar";
 import { TerminalTyping } from "../components/TerminalTyping";
+import { ChapterNav } from "../components/ChapterNav";
 import { Timeline } from "../components/Timeline";
 import { Footer } from "../components/Footer";
 
@@ -78,7 +79,7 @@ const OverviewSection = ({ lang }) => (
       <ChapterHeading number="01" title="The" italic="story" />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
         <div className="lg:col-span-4">
-          <div className="lg:sticky lg:top-32">
+          <div className="lg:sticky lg:top-44">
             <FadeUp>
               <p className="font-jetbrains text-xs uppercase tracking-[0.25em] text-dim mb-10">Profile — /100</p>
               {lang.stats.map((s, i) => (
@@ -117,8 +118,9 @@ const BasicsSection = ({ lang }) => (
               <span className="font-jetbrains text-xs text-dim">{String(i + 1).padStart(2, "0")}</span>
             </div>
             <p className="font-satoshi text-sm text-dim leading-relaxed mb-8">{b.note}</p>
-            <div className="border border-line bg-[#0B0B0C] p-5 overflow-x-auto">
-              <pre className="font-jetbrains text-[13px] leading-7 text-cream/90">
+            <div className="border border-line bg-[#0B0B0C] p-5 overflow-x-auto relative">
+              <CopyButton text={b.code} testId={`copy-basics-${i}`} className="absolute top-3 right-3" />
+              <pre className="font-jetbrains text-[13px] leading-7 text-cream/90 pr-16">
                 <code>{b.code}</code>
               </pre>
             </div>
@@ -248,6 +250,7 @@ export default function LanguagePage() {
   return (
     <main key={lang.slug} data-testid={`language-page-${lang.slug}`}>
       <HeroSection lang={lang} />
+      <ChapterNav />
       <OverviewSection lang={lang} />
       <BasicsSection lang={lang} />
       <CodeSection lang={lang} />

@@ -5,6 +5,7 @@ import Lenis from "lenis";
 import { Navbar } from "@/components/Navbar";
 import HomePage from "@/pages/HomePage";
 import LanguagePage from "@/pages/LanguagePage";
+import QuizPage from "@/pages/QuizPage";
 
 const ScrollManager = () => {
   const { pathname } = useLocation();
@@ -17,6 +18,7 @@ const ScrollManager = () => {
 function App() {
   useEffect(() => {
     const lenis = new Lenis({ duration: 1.15, smoothWheel: true });
+    window.__lenis = lenis;
     let raf;
     const loop = (time) => {
       lenis.raf(time);
@@ -26,6 +28,7 @@ function App() {
     return () => {
       cancelAnimationFrame(raf);
       lenis.destroy();
+      delete window.__lenis;
     };
   }, []);
 
@@ -37,6 +40,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/language/:slug" element={<LanguagePage />} />
+          <Route path="/quiz" element={<QuizPage />} />
           <Route path="*" element={<HomePage />} />
         </Routes>
         <div className="noise-overlay" aria-hidden="true" />
