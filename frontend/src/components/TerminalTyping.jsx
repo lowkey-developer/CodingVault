@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { RotateCcw } from "lucide-react";
 
 const HELLO_WORLD = {
   python: 'print("Hello, World!")',
@@ -37,6 +38,14 @@ export const TerminalTyping = ({ slug }) => {
   const reduce = useReducedMotion();
   const [typed, setTyped] = useState(reduce ? line : "");
   const [done, setDone] = useState(reduce);
+  const [runId, setRunId] = useState(0);
+
+  const replay = () => {
+    if (reduce) return;
+    setTyped("");
+    setDone(false);
+    setRunId((k) => k + 1);
+  };
 
   useEffect(() => {
     if (reduce) {
@@ -49,22 +58,25 @@ export const TerminalTyping = ({ slug }) => {
     let i = 0;
     let iv;
     let finish;
-    const start = setTimeout(() => {
-      iv = setInterval(() => {
-        i += 1;
-        setTyped(line.slice(0, i));
-        if (i >= line.length) {
-          clearInterval(iv);
-          finish = setTimeout(() => setDone(true), 350);
-        }
-      }, 42);
-    }, 1200);
+    const start = setTimeout(
+      () => {
+        iv = setInterval(() => {
+          i += 1;
+          setTyped(line.slice(0, i));
+          if (i >= line.length) {
+            clearInterval(iv);
+            finish = setTimeout(() => setDone(true), 350);
+          }
+        }, 42);
+      },
+      runId === 0 ? 1200 : 350
+    );
     return () => {
       clearTimeout(start);
       if (iv) clearInterval(iv);
       if (finish) clearTimeout(finish);
     };
-  }, [line, reduce]);
+  }, [line, reduce, runId]);
 
   const colored = splitStrings(typed);
 
@@ -83,6 +95,15 @@ export const TerminalTyping = ({ slug }) => {
         <span className="ml-2 font-jetbrains text-[10px] uppercase tracking-[0.25em] text-dim">
           hello — {slug}
         </span>
+        <button
+          onClick={replay}
+          data-testid="hello-terminal-replay"
+          aria-label="Replay typing animation"
+          className="ml-auto group flex items-center gap-2 font-jetbrains text-[10px] uppercase tracking-[0.25em] text-dim hover:text-accent transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        >
+          <RotateCcw size={11} className="transition-transform duration-500 group-hover:-rotate-180" />
+          Re-run
+        </button>
       </div>
       <div className="bg-[#0B0B0C] px-5 py-4 font-jetbrains text-[13px] md:text-sm leading-7 overflow-x-auto whitespace-nowrap">
         <div className="flex items-center">
